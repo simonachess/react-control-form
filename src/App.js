@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Checkbox from './components/Checkbox';
+import Radio from './components/Radio';
+import Select from './components/Select';
+import ShowText from './components/ShowText';
+import TextArea from './components/TextArea';
+import TextInput from './components/TextInput';
 
 function App() {
+
+  const [showText, setShowText] = useState('nothing');
+
+  const whatText = (text) => {
+    setShowText(text);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ShowText text={showText} />
+      <TextInput whatText={whatText} />
+      <Select />
+      <TextArea />
+      <Checkbox />
+      <Radio />
     </div>
   );
 }
